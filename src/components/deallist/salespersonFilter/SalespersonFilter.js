@@ -12,7 +12,7 @@ export const SalespersonFilter = () => {
                         <form className="tbl-captionn">
                             <div className="row">
                                 <div className="col-xl-4 mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Deal Name</label>
+                                    <label for="exampleFormControlInput1" className="form-label">Deal Name</label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -20,7 +20,7 @@ export const SalespersonFilter = () => {
                                     />
                                 </div>
                                 <div className="col-xl-4 mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Company</label>
+                                    <label for="exampleFormControlInput1" className="form-label">Company</label>
                                     <input
                                         type="text"
                                         className="form-control"
@@ -28,8 +28,8 @@ export const SalespersonFilter = () => {
                                     />
                                 </div>
                                 <div className="col-xl-4 mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Pipline</label>
-                                    <select class="form-control" aria-label="Default select example">
+                                    <label for="exampleFormControlInput1" className="form-label">Pipline</label>
+                                    <select className="form-control" aria-label="Default select example">
                                         <option selected>Open this select  Pipline</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -37,8 +37,8 @@ export const SalespersonFilter = () => {
                                     </select>
                                 </div>
                                 <div className="col-xl-4 mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Owner</label>
-                                    <select class="form-control" aria-label="Default select example">
+                                    <label for="exampleFormControlInput1" className="form-label">Owner</label>
+                                    <select className="form-control" aria-label="Default select example">
                                         <option selected>Open this select  Owner</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
@@ -46,8 +46,8 @@ export const SalespersonFilter = () => {
                                     </select>
                                 </div>
                                 <div className="col-xl-4 mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">Stage</label>
-                                    <select class="form-control" aria-label="Default select example">
+                                    <label for="exampleFormControlInput1" className="form-label">Stage</label>
+                                    <select className="form-control" aria-label="Default select example">
                                         <option selected>Open this select  Stage</option>
                                         <option value="1">One</option>
                                         <option value="2">Two</option>
