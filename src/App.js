@@ -24,6 +24,12 @@ import PlansPage from "./pages/plans";
 import CreateDeal from "./pages/createDeal";
 import ListDeal from "./pages/listDeal";
 import ListDealEdit from "./pages/listDealEdit";
+import SequencePage from "./pages/engage/sequences";
+import SequencesAdd from "./components/engage/sequences/sequencesAdd/SequencesAdd";
+import EmailPage from "./pages/engage/emails";
+import EmailAdd from "./components/engage/emails/emailsAdd/EmailAdd";
+import MeatingPage from "./pages/meetings";
+import PlayListPage from "./pages/playlists";
 
 
 function App() {
@@ -79,8 +85,12 @@ function App() {
               <Route path="deal/create" element={<CreateDeal />} />
               <Route path="deals/list" element={<ListDeal />} />
               <Route path="deals/edit/:id" element={<ListDealEdit />} />
-
-
+              <Route path="sequences" element={<SequencePage />} />
+              <Route path="sequences-add" element={<SequencesAdd />} />
+              <Route path="email" element={<EmailPage />} />
+              <Route path="email-add" element={<EmailAdd />} />
+              <Route path="meetings" element={<MeatingPage />} />
+              <Route path="playlists" element={<PlayListPage />} />
 
               <Route path="*" element={<PageNotFound />} />
             </Route>
