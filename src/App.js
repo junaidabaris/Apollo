@@ -41,7 +41,7 @@ function App() {
       navigate(location?.pathname);
     }
 
-  }, [dispatch, location?.pathname, navigate]);
+  }, []);
 
   useEffect(() => {
     setIsAuthenticated(isLogin);
