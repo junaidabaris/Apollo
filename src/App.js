@@ -4,10 +4,10 @@ import "./assets/css/style.css";
 // import "./components/upgrade-member/member.css"
 import "react-toastify/dist/ReactToastify.css";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 // import "./assets/css/style.css";
 import "./common/CustomInputField/index.module.scss";
-import "./assets/css/project.css"
+import "./assets/css/project.css";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -24,7 +24,10 @@ import PlansPage from "./pages/plans";
 import CreateDeal from "./pages/createDeal";
 import ListDeal from "./pages/listDeal";
 import ListDealEdit from "./pages/listDealEdit";
-import SequencePage from "./pages/engage/sequences";
+import AnalyticsPage from "./pages/tools&automationPage/analytics";
+import WorkFlowsPage from "./pages/tools&automationPage/workFlows";
+import FilterWf from "./components/tools&automation/workflows/workflowHeader/filterWf/FilterWf";
+import TasksPage from "./pages/tools&automationPage/tasks";import SequencePage from "./pages/engage/sequences";
 import SequencesAdd from "./components/engage/sequences/sequencesAdd/SequencesAdd";
 import EmailPage from "./pages/engage/emails";
 import EmailAdd from "./components/engage/emails/emailsAdd/EmailAdd";
@@ -46,7 +49,6 @@ function App() {
       dispatch(setIsLogin({ isLogin: true }));
       navigate(location?.pathname);
     }
-
   }, []);
 
   useEffect(() => {
@@ -70,7 +72,12 @@ function App() {
           </>
         ) : (
           <>
-            <Route path="/" element={<Navigate to={`${window.localStorage.getItem('dashRout')}`} />} />
+            <Route
+              path="/"
+              element={
+                <Navigate to={`${window.localStorage.getItem("dashRout")}`} />
+              }
+            />
             {/* <Route path="/" element={<Navigate to={`/admin`} />} /> */}
             <Route
               path=""
@@ -93,6 +100,14 @@ function App() {
               <Route path="playlists" element={<PlayListPage />} />
 
               <Route path="*" element={<PageNotFound />} />
+
+              {/* daud--route */}
+
+              <Route path="analytics" element={<AnalyticsPage />} />
+              <Route path="workflows" element={<WorkFlowsPage />} />
+              <Route path="workflows/filterWF" element={<FilterWf />} />
+
+              <Route path="tasks" element={<TasksPage />} />
             </Route>
           </>
         )}
