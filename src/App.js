@@ -43,7 +43,16 @@ import PlayListPage from "./pages/playlists";
 import NotificationsPage from "./pages/settingsPage/notifications";
 import PermissionProfilesPage from "./pages/settingsPage/users&teams/permissionProfiles";
 import TeamsPage from "./pages/settingsPage/users&teams/teams";
-import UsersPage from "./pages/settingsPage/users&teams/users";
+import UsersPage from "./pages/settingsPage/users&teams/users";import ListPages from "./pages/Lists";
+import CompaniesPage from "./pages/companies";
+import PeoplesPage from "./pages/peoples";
+import SequencePages from "./pages/sequense";
+import ProfilePage from "./pages/profile";
+import MailboxesPages from "./pages/Mailboxes";
+import IntegrationsPages from "./pages/integrations";
+import ContactsPages from "./pages/objects/contacts";
+import AccountPages from "./pages/objects/accounts";
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -106,6 +115,17 @@ function App() {
               <Route path="meetings" element={<MeatingPage />} />
               <Route path="playlists" element={<PlayListPage />} />
 
+              <Route path="list" element={<ListPages />} />
+              <Route path="companies" element={<CompaniesPage />} />
+              <Route path="peoples" element={<PeoplesPage />} />
+              <Route path="sequences-edit/:id" element={<SequencePages/>} />
+
+              <Route path="profile" element={<ProfilePage />} />
+              <Route path="mailboxes" element={<MailboxesPages />} />
+              <Route path="integrations" element={<IntegrationsPages />} />
+              <Route path="contacts/stages" element={<ContactsPages />} />
+              <Route path="accounts/stages" element={<AccountPages />} />
+              
               <Route path="*" element={<PageNotFound />} />
 
               {/* daud--route */}
