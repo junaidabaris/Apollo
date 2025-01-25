@@ -17,7 +17,6 @@ const Sequences = () => {
         path_2: ``
     };
     const [modalShow, setModalShow] = useState(false);
-    console.log(modalShow);
     const [modalShowAchicve, setModalShowAchicve] = useState(false);
     const [modalShowClone, setModalShowClone] = useState(false);
     const [open, setOpen] = useState(false)
@@ -93,7 +92,7 @@ const Sequences = () => {
                                                                     <Link to='' onClick={() => setModalShowClone(true)}>Clone</Link>
                                                                 </div >
                                                                 <div className="link-set-set">
-                                                                    <Link to=''>Edit</Link>
+                                                                    <Link to='/sequences-edit/212'>Edit</Link>
                                                                 </div>
                                                             </div>
                                                         )}

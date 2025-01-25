@@ -7,12 +7,12 @@ function Breadcrumbs({breadCrumbsTitle}) {
             <ol className="breadcrumb">
                 {/* <li><h5 className="bc-title">PayPanda</h5></li> */}
                 <li className="breadcrumb-item"><Link to={"/"}>
-                    Home /
+                    Home 
                 </Link>
                 </li>
                 {breadCrumbsTitle.title_1 && 
                 <li className="breadcrumb-item"><Link to={breadCrumbsTitle.path_1}>
-                {` ${breadCrumbsTitle.title_1}`} /
+                {` ${breadCrumbsTitle.title_1}`} 
                 </Link>
                 </li>}
                 {breadCrumbsTitle.title_2 && 
