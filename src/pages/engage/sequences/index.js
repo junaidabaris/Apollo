@@ -1,12 +1,11 @@
-import Sequences from "../../../components/engage/sequences/Sequences"
-
+import Sequences from "../../../components/engage/sequences/Sequences";
 
 const SequencePage = () => {
-    return (
-        <>
-            <Sequences />
-        </>
-    )
-}
+  return (
+    <>
+      <Sequences />
+    </>
+  );
+};
 
-export default SequencePage
+export default SequencePage;
