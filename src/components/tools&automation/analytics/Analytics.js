@@ -1,7 +1,6 @@
 import { Button } from "react-bootstrap";
 import Breadcrumbs from "../../../common/breadcrumb/Breadcrumbs";
 
-import TopSections from "../../plans/TopSections";
 
 function Analytics() {
   const breadCrumbsTitle = {

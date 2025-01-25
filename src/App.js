@@ -1,4 +1,10 @@
-import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 import "./assets/css/style.css";
 // import "./components/upgrade-member/member.css"
@@ -27,13 +33,17 @@ import ListDealEdit from "./pages/listDealEdit";
 import AnalyticsPage from "./pages/tools&automationPage/analytics";
 import WorkFlowsPage from "./pages/tools&automationPage/workFlows";
 import FilterWf from "./components/tools&automation/workflows/workflowHeader/filterWf/FilterWf";
-import TasksPage from "./pages/tools&automationPage/tasks";import SequencePage from "./pages/engage/sequences";
+import TasksPage from "./pages/tools&automationPage/tasks";
+import SequencePage from "./pages/engage/sequences";
 import SequencesAdd from "./components/engage/sequences/sequencesAdd/SequencesAdd";
 import EmailPage from "./pages/engage/emails";
 import EmailAdd from "./components/engage/emails/emailsAdd/EmailAdd";
 import MeatingPage from "./pages/meetings";
 import PlayListPage from "./pages/playlists";
-
+import NotificationsPage from "./pages/settingsPage/notifications";
+import PermissionProfilesPage from "./pages/settingsPage/users&teams/permissionProfiles";
+import TeamsPage from "./pages/settingsPage/users&teams/teams";
+import UsersPage from "./pages/settingsPage/users&teams/users";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -53,10 +63,7 @@ function App() {
 
   useEffect(() => {
     setIsAuthenticated(isLogin);
-
   }, [isLogin]);
-
-
 
   return (
     <>
@@ -108,6 +115,16 @@ function App() {
               <Route path="workflows/filterWF" element={<FilterWf />} />
 
               <Route path="tasks" element={<TasksPage />} />
+
+              {/* --settings----25:01:25--- */}
+
+              <Route path="Notifications" element={<NotificationsPage />} />
+              <Route
+                path="permissionProfiles"
+                element={<PermissionProfilesPage />}
+              />
+              <Route path="teams" element={<TeamsPage />} />
+              <Route path="users" element={<UsersPage />} />
             </Route>
           </>
         )}
