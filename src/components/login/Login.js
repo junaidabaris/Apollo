@@ -3,7 +3,12 @@ import loginAbarisBanner from "../../assets/images/kyc/abarisBanner.png";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
-import { getCompanyInfo, getMenusdata, LoginSubmit, sendNotification } from "../../api/login/Login";
+import {
+  getCompanyInfo,
+  getMenusdata,
+  LoginSubmit,
+  sendNotification,
+} from "../../api/login/Login";
 import CustomInputField from "../../common/CustomInputField";
 import { SaveUserDeatilsLocalStorage } from "../../utils/localStorage";
 import { useDispatch } from "react-redux";
@@ -46,45 +51,47 @@ function Login() {
     }));
   };
 
-
   const [tokenNoti, setokenNoti] = useState(null);
   const requestPermission = async () => {
     Notification.requestPermission().then((permission) => {
-      if (permission === 'granted') {
-        getToken(messaging, { vapidKey: 'BPmnN4enu6SLX6ASW7dctK6Q0j3GnTUhL5ZRi16I6RDqGav4khN2JIHmdKcL4eTqwRBu-PWmaUa1G-Oaor7AcF4' }).then((currentToken) => {
-          if (currentToken) {
-            console.log('Got FCM device token:', currentToken);
-            setokenNoti(currentToken)
-            // Send the token to your server or display it on the UI
-          } else {
-            console.log('No registration token available. Request permission to generate one.');
-          }
-        }).catch((err) => {
-          console.log('An error occurred while retrieving token. ', err);
-        });
+      if (permission === "granted") {
+        getToken(messaging, {
+          vapidKey:
+            "BPmnN4enu6SLX6ASW7dctK6Q0j3GnTUhL5ZRi16I6RDqGav4khN2JIHmdKcL4eTqwRBu-PWmaUa1G-Oaor7AcF4",
+        })
+          .then((currentToken) => {
+            if (currentToken) {
+              console.log("Got FCM device token:", currentToken);
+              setokenNoti(currentToken);
+              // Send the token to your server or display it on the UI
+            } else {
+              console.log(
+                "No registration token available. Request permission to generate one."
+              );
+            }
+          })
+          .catch((err) => {
+            console.log("An error occurred while retrieving token. ", err);
+          });
       }
-    })
-
-  }
+    });
+  };
 
   useEffect(() => {
-    requestPermission()
+    requestPermission();
   }, []);
-
-
 
   const submitForm = async (values) => {
     setLoading(true);
     try {
-      let result = await sendNotification({ type: 'Browser', token: tokenNoti });
-
-    } catch (error) {
-
-    }
+      let result = await sendNotification({
+        type: "Browser",
+        token: tokenNoti,
+      });
+    } catch (error) {}
     try {
       let result = await LoginSubmit(values);
       if (result.statusCode === "200") {
-
         SaveUserDeatilsLocalStorage(result.data.token);
         dispatch(setIsLogin({ isLogin: !!result.data.token }));
         const navigateToDashboard = async () => {
@@ -97,8 +104,6 @@ function Login() {
         };
         navigateToDashboard();
 
-
-
         try {
           const data = await getMenusdata();
 
@@ -106,22 +111,17 @@ function Login() {
           if (!dashboardRoute) {
             throw new Error("Dashboard route not found");
           }
-          window.localStorage.setItem('dashRout', dashboardRoute);
+          window.localStorage.setItem("dashRout", dashboardRoute);
           setTimeout(() => {
             setLoading(false);
             navigate(`/${dashboardRoute}`);
           }, 1000);
-
         } catch (error) {
           alert(`Error: ${error.message || "Dashboard Path Not Found!"}`);
         }
-
-
-
-
       } else {
         // throw new Error(result.data.message);
-        alert(result?.message)
+        alert(result?.message);
         setLoading(false);
       }
     } catch (error) {
@@ -130,43 +130,62 @@ function Login() {
     }
   };
 
-
-  const [state, setData] = useState(null)
+  const [state, setData] = useState(null);
   const getData = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-      const res = await getCompanyInfo()
+      const res = await getCompanyInfo();
       setData(res.data);
     } catch (error) {
-      alert(error.message)
+      alert(error.message);
     }
-    setLoading(false)
-  }
+    setLoading(false);
+  };
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
   return (
     <>
-      {loading ? <Loadar /> :
+      {loading ? (
+        <Loadar />
+      ) : (
         <div className="authincation h-100 h-100-2">
           <div className="container-fluid">
             <div className="row h-100 align-items-center">
-
               <div className="col-xl-6 col-lg-6">
                 {/* <div className="d-flex align-items-center"> */}
                 <div className="pages-left h-100 ">
                   <div className="login-content">
                     <a href="#">
-                      <img src={state?.logo ? `${baseUrlImage}${state?.logo}` : loginAbarisLogo} className="mb-3 logo-dark" alt />
+                      <img
+                        src={
+                          state?.logo
+                            ? `${baseUrlImage}${state?.logo}`
+                            : loginAbarisLogo
+                        }
+                        className="mb-3 logo-dark"
+                        alt
+                      />
                     </a>
-                    {state?.login_left_description ? (<p>
-                      {state?.login_left_description}
-                    </p>) : (<p>Sign in to your account to start using Abaris CMS with CRM Software</p>)}
-
+                    {state?.login_left_description ? (
+                      <p>{state?.login_left_description}</p>
+                    ) : (
+                      <p>
+                        Sign in to your account to start using Abaris CMS with
+                        CRM Software
+                      </p>
+                    )}
                   </div>
                   <div className="login-media text-center">
-                    <img src={state?.login_background_image ? `${baseUrlImage}${state?.login_background_image}` : loginAbarisBanner} className="mb-3 logo-dark" alt />
-
+                    <img
+                      src={
+                        state?.login_background_image
+                          ? `${baseUrlImage}${state?.login_background_image}`
+                          : loginAbarisBanner
+                      }
+                      className="mb-3 logo-dark"
+                      alt
+                    />
                   </div>
                 </div>
                 {/* </div> */}
@@ -174,10 +193,16 @@ function Login() {
               <div className="col-lg-6 col-md-12 col-sm-12 mx-auto align-self-center">
                 <div className="login-form">
                   <div className="text-center">
-
                     <h3 className="title">Sign In</h3>
 
-                    {state?.login_right_desciption ? <p>{state?.login_right_desciption}</p> : <p>Abaris CMS with CRM Software uses line charts to visualize customer-related metrics and trends over time.</p>}
+                    {state?.login_right_desciption ? (
+                      <p>{state?.login_right_desciption}</p>
+                    ) : (
+                      <p>
+                        Abaris CMS with CRM Software uses line charts to
+                        visualize customer-related metrics and trends over time.
+                      </p>
+                    )}
                   </div>
                   <Formik
                     initialValues={formValues}
@@ -206,7 +231,7 @@ function Login() {
                               errorMsg={errors.email}
                               // autoFocus={true}
                               id="email"
-                            // autocomplete="email"
+                              // autocomplete="email"
                             />
                           </div>
                           <div className="mb-4 position-relative">
@@ -253,16 +278,23 @@ function Login() {
                           <div className="text-center">
                             <button
                               className="btn btn-dark comm-bg w-100 "
-                              disabled={!values.password || !values.email || loading}
+                              disabled={
+                                !values.password || !values.email || loading
+                              }
                             >
                               <div className="d-flex justify-content-center align-items-center">
-                                <span style={{ fontSize: "1rem" }}>Sign In</span>
-                                &nbsp;
-                                &nbsp;
-                                {loading && <Spinner animation="border" style={{ height: "1rem", width: "1rem" }} />}
+                                <span style={{ fontSize: "1rem" }}>
+                                  Sign In
+                                </span>
+                                &nbsp; &nbsp;
+                                {loading && (
+                                  <Spinner
+                                    animation="border"
+                                    style={{ height: "1rem", width: "1rem" }}
+                                  />
+                                )}
                               </div>
                             </button>
-
                           </div>
                         </form>
                       );
@@ -272,7 +304,8 @@ function Login() {
               </div>
             </div>
           </div>
-        </div>}
+        </div>
+      )}
     </>
   );
 }

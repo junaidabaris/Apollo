@@ -1,13 +1,19 @@
-import { Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 import "./assets/css/style.css";
 // import "./components/upgrade-member/member.css"
 import "react-toastify/dist/ReactToastify.css";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 // import "./assets/css/style.css";
 import "./common/CustomInputField/index.module.scss";
-import "./assets/css/project.css"
+import "./assets/css/project.css";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
@@ -24,13 +30,20 @@ import PlansPage from "./pages/plans";
 import CreateDeal from "./pages/createDeal";
 import ListDeal from "./pages/listDeal";
 import ListDealEdit from "./pages/listDealEdit";
+import AnalyticsPage from "./pages/tools&automationPage/analytics";
+import WorkFlowsPage from "./pages/tools&automationPage/workFlows";
+import FilterWf from "./components/tools&automation/workflows/workflowHeader/filterWf/FilterWf";
+import TasksPage from "./pages/tools&automationPage/tasks";
 import SequencePage from "./pages/engage/sequences";
 import SequencesAdd from "./components/engage/sequences/sequencesAdd/SequencesAdd";
 import EmailPage from "./pages/engage/emails";
 import EmailAdd from "./components/engage/emails/emailsAdd/EmailAdd";
 import MeatingPage from "./pages/meetings";
 import PlayListPage from "./pages/playlists";
-import ListPages from "./pages/Lists";
+import NotificationsPage from "./pages/settingsPage/notifications";
+import PermissionProfilesPage from "./pages/settingsPage/users&teams/permissionProfiles";
+import TeamsPage from "./pages/settingsPage/users&teams/teams";
+import UsersPage from "./pages/settingsPage/users&teams/users";import ListPages from "./pages/Lists";
 import CompaniesPage from "./pages/companies";
 import PeoplesPage from "./pages/peoples";
 import SequencePages from "./pages/sequense";
@@ -55,15 +68,11 @@ function App() {
       dispatch(setIsLogin({ isLogin: true }));
       navigate(location?.pathname);
     }
-
   }, []);
 
   useEffect(() => {
     setIsAuthenticated(isLogin);
-
   }, [isLogin]);
-
-
 
   return (
     <>
@@ -79,7 +88,12 @@ function App() {
           </>
         ) : (
           <>
-            <Route path="/" element={<Navigate to={`${window.localStorage.getItem('dashRout')}`} />} />
+            <Route
+              path="/"
+              element={
+                <Navigate to={`${window.localStorage.getItem("dashRout")}`} />
+              }
+            />
             {/* <Route path="/" element={<Navigate to={`/admin`} />} /> */}
             <Route
               path=""
@@ -113,6 +127,25 @@ function App() {
               <Route path="accounts/stages" element={<AccountPages />} />
               
               <Route path="*" element={<PageNotFound />} />
+
+              {/* daud--route */}
+
+              <Route path="analytics" element={<AnalyticsPage />} />
+              <Route path="workflows" element={<WorkFlowsPage />} />
+              <Route path="workflows/filterWF" element={<FilterWf />} />
+
+              <Route path="tasks" element={<TasksPage />} />
+
+              {/* --settings----25:01:25--- */}
+              {/* --settings----25:01:25--- */}
+
+              <Route path="Notifications" element={<NotificationsPage />} />
+              <Route
+                path="permissionProfiles"
+                element={<PermissionProfilesPage />}
+              />
+              <Route path="teams" element={<TeamsPage />} />
+              <Route path="users" element={<UsersPage />} />
             </Route>
           </>
         )}
