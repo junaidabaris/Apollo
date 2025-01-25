@@ -1,20 +1,27 @@
-import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 
 import "./assets/css/style.css";
 // import "./components/upgrade-member/member.css"
 import "react-toastify/dist/ReactToastify.css";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 // import "./assets/css/style.css";
 import "./common/CustomInputField/index.module.scss";
-import "./assets/css/project.css"
+import "./assets/css/project.css";
 
 import { getMenusdata, sendNotification } from "./api/login/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { setIsLogin } from "./slice/auth";
 import { getToken2 } from "./utils/localStorage";
-import { getToken } from 'firebase/messaging';
+import { getToken } from "firebase/messaging";
 import { messaging } from "./firebase/fireBase";
 import LoginPage from "./pages/login";
 import ForgotPassword from "./components/forgotPassword/ForgotPassword";
@@ -27,7 +34,10 @@ import PlansPage from "./pages/plans";
 import CreateDeal from "./pages/createDeal";
 import ListDeal from "./pages/listDeal";
 import ListDealEdit from "./pages/listDealEdit";
-
+import AnalyticsPage from "./pages/tools&automationPage/analytics";
+import WorkFlowsPage from "./pages/tools&automationPage/workFlows";
+import FilterWf from "./components/tools&automation/workflows/workflowHeader/filterWf/FilterWf";
+import TasksPage from "./pages/tools&automationPage/tasks";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -44,56 +54,50 @@ function App() {
       dispatch(setIsLogin({ isLogin: true }));
       navigate(location?.pathname);
     }
-
   }, []);
 
   useEffect(() => {
     setIsAuthenticated(isLogin);
-
-
   }, [isLogin]);
-
-
-
-
 
   const [tokenNoti, setokenNoti] = useState(null);
 
   const sendNotification2 = async (token) => {
     try {
-      let result = await sendNotification({ type: 'Browser', token: token });
-
-    } catch (error) {
-
-    }
+      let result = await sendNotification({ type: "Browser", token: token });
+    } catch (error) {}
   };
 
   async function requestPermissions() {
-
-
     Notification.requestPermission().then((permission) => {
-      if (permission === 'granted') {
-        getToken(messaging, { vapidKey: 'BPmnN4enu6SLX6ASW7dctK6Q0j3GnTUhL5ZRi16I6RDqGav4khN2JIHmdKcL4eTqwRBu-PWmaUa1G-Oaor7AcF4' }).then((currentToken) => {
-          if (currentToken) {
-            console.log('Got FCM device token:', currentToken);
-            setokenNoti(currentToken)
-            if (isLogin) {
-              sendNotification2(currentToken)
-
+      if (permission === "granted") {
+        getToken(messaging, {
+          vapidKey:
+            "BPmnN4enu6SLX6ASW7dctK6Q0j3GnTUhL5ZRi16I6RDqGav4khN2JIHmdKcL4eTqwRBu-PWmaUa1G-Oaor7AcF4",
+        })
+          .then((currentToken) => {
+            if (currentToken) {
+              console.log("Got FCM device token:", currentToken);
+              setokenNoti(currentToken);
+              if (isLogin) {
+                sendNotification2(currentToken);
+              }
+              // Send the token to your server or display it on the UI
+            } else {
+              console.log(
+                "No registration token available. Request permission to generate one."
+              );
             }
-            // Send the token to your server or display it on the UI
-          } else {
-            console.log('No registration token available. Request permission to generate one.');
-          }
-        }).catch((err) => {
-          console.log('An error occurred while retrieving token. ', err);
-        });
+          })
+          .catch((err) => {
+            console.log("An error occurred while retrieving token. ", err);
+          });
       }
-    })
+    });
   }
   // console.log(window.localStorage.getItem('dashRout') == null);
 
-  const [mnualData, setManualData] = useState()
+  const [mnualData, setManualData] = useState();
   return (
     <>
       <Routes>
@@ -108,7 +112,12 @@ function App() {
           </>
         ) : (
           <>
-            <Route path="/" element={<Navigate to={`${window.localStorage.getItem('dashRout')}`} />} />
+            <Route
+              path="/"
+              element={
+                <Navigate to={`${window.localStorage.getItem("dashRout")}`} />
+              }
+            />
             {/* <Route path="/" element={<Navigate to={`/admin`} />} /> */}
             <Route
               path=""
@@ -124,9 +133,15 @@ function App() {
               <Route path="deals/list" element={<ListDeal />} />
               <Route path="deals/edit/:id" element={<ListDealEdit />} />
 
-
-
               <Route path="*" element={<PageNotFound />} />
+
+              {/* daud--route */}
+
+              <Route path="analytics" element={<AnalyticsPage />} />
+              <Route path="workflows" element={<WorkFlowsPage />} />
+              <Route path="workflows/filterWF" element={<FilterWf />} />
+
+              <Route path="tasks" element={<TasksPage />} />
             </Route>
           </>
         )}
