@@ -43,7 +43,7 @@ import PlayListPage from "./pages/playlists";
 import NotificationsPage from "./pages/settingsPage/notifications";
 import PermissionProfilesPage from "./pages/settingsPage/users&teams/permissionProfiles";
 import TeamsPage from "./pages/settingsPage/users&teams/teams";
-import UsersPage from "./pages/settingsPage/users&teams/users";
+import UsersPage from "./pages/settingsPage/users&teams/users"; 
 import ListPages from "./pages/Lists";
 import CompaniesPage from "./pages/companies";
 import PeoplesPage from "./pages/peoples";
@@ -53,6 +53,16 @@ import MailboxesPages from "./pages/Mailboxes";
 import IntegrationsPages from "./pages/integrations";
 import ContactsPages from "./pages/objects/contacts";
 import AccountPages from "./pages/objects/accounts";
+import DealsPages from "./pages/objects/deals";
+import BillOfMaterials from "./pages/billOfMaterials";
+import ApInvoice from "./pages/apInvoice/apInvoice";
+import SalesAnalysisReport from "./pages/salesAnalysisReport";
+import AnalysisQuarterly from "./pages/analysisQuarterly";
+import ResourceCapacity from "./pages/resourceCapacity";
+import ProjectServer from "./pages/projectServer";
+import PurchaseDashboard from "./pages/purchasedashboard/index.js";
+import BusinessPatner from "./pages/Bussniss/index.js";
+import CrmDahboard from "./pages/crmdashboard/index.js";
 import SecurityPage from "./pages/settingsPage/users&teams/security";
 
 function App() {
@@ -126,6 +136,7 @@ function App() {
               <Route path="integrations" element={<IntegrationsPages />} />
               <Route path="contacts/stages" element={<ContactsPages />} />
               <Route path="accounts/stages" element={<AccountPages />} />
+              <Route path="settings/deals" element={<DealsPages />} />
 
               <Route path="*" element={<PageNotFound />} />
 
@@ -147,6 +158,21 @@ function App() {
               />
               <Route path="teams" element={<TeamsPage />} />
               <Route path="users" element={<UsersPage />} />
+              {/* meraj  */}
+
+              <Route path="bill-materials" element={<BillOfMaterials />} />
+              <Route path="ap-invoice" element={<ApInvoice />} />
+              <Route path="sales-analysis" element={<SalesAnalysisReport />} />
+              <Route path="analysis-quarterly" element={<AnalysisQuarterly />} />
+              <Route path="resource-capacity" element={<ResourceCapacity />} />
+              <Route path="project-server" element={<ProjectServer />} />
+
+              {/* atif */}
+              <Route path="purchasedashboard" element={<PurchaseDashboard />} />
+              {/* <Route path="alerts" element={<Alerts />} /> */}
+              <Route path="businesspatner" element={<BusinessPatner />} />
+
+              <Route path="crm" element={<CrmDahboard />} />
 
               {/* apollo -settings--security-- 27:01:25-- */}
 
