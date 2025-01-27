@@ -43,7 +43,8 @@ import PlayListPage from "./pages/playlists";
 import NotificationsPage from "./pages/settingsPage/notifications";
 import PermissionProfilesPage from "./pages/settingsPage/users&teams/permissionProfiles";
 import TeamsPage from "./pages/settingsPage/users&teams/teams";
-import UsersPage from "./pages/settingsPage/users&teams/users";import ListPages from "./pages/Lists";
+import UsersPage from "./pages/settingsPage/users&teams/users";
+import ListPages from "./pages/Lists";
 import CompaniesPage from "./pages/companies";
 import PeoplesPage from "./pages/peoples";
 import SequencePages from "./pages/sequense";
@@ -52,7 +53,7 @@ import MailboxesPages from "./pages/Mailboxes";
 import IntegrationsPages from "./pages/integrations";
 import ContactsPages from "./pages/objects/contacts";
 import AccountPages from "./pages/objects/accounts";
-
+import SecurityPage from "./pages/settingsPage/users&teams/security";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -118,14 +119,14 @@ function App() {
               <Route path="list" element={<ListPages />} />
               <Route path="companies" element={<CompaniesPage />} />
               <Route path="peoples" element={<PeoplesPage />} />
-              <Route path="sequences-edit/:id" element={<SequencePages/>} />
+              <Route path="sequences-edit/:id" element={<SequencePages />} />
 
               <Route path="profile" element={<ProfilePage />} />
               <Route path="mailboxes" element={<MailboxesPages />} />
               <Route path="integrations" element={<IntegrationsPages />} />
               <Route path="contacts/stages" element={<ContactsPages />} />
               <Route path="accounts/stages" element={<AccountPages />} />
-              
+
               <Route path="*" element={<PageNotFound />} />
 
               {/* daud--route */}
@@ -146,6 +147,10 @@ function App() {
               />
               <Route path="teams" element={<TeamsPage />} />
               <Route path="users" element={<UsersPage />} />
+
+              {/* apollo -settings--security-- 27:01:25-- */}
+
+              <Route path="security" element={<SecurityPage />} />
             </Route>
           </>
         )}
