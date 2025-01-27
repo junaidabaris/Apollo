@@ -43,7 +43,8 @@ import PlayListPage from "./pages/playlists";
 import NotificationsPage from "./pages/settingsPage/notifications";
 import PermissionProfilesPage from "./pages/settingsPage/users&teams/permissionProfiles";
 import TeamsPage from "./pages/settingsPage/users&teams/teams";
-import UsersPage from "./pages/settingsPage/users&teams/users"; import ListPages from "./pages/Lists";
+import UsersPage from "./pages/settingsPage/users&teams/users"; 
+import ListPages from "./pages/Lists";
 import CompaniesPage from "./pages/companies";
 import PeoplesPage from "./pages/peoples";
 import SequencePages from "./pages/sequense";
@@ -62,6 +63,7 @@ import ProjectServer from "./pages/projectServer";
 import PurchaseDashboard from "./pages/purchasedashboard/index.js";
 import BusinessPatner from "./pages/Bussniss/index.js";
 import CrmDahboard from "./pages/crmdashboard/index.js";
+import SecurityPage from "./pages/settingsPage/users&teams/security";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -171,6 +173,10 @@ function App() {
               <Route path="businesspatner" element={<BusinessPatner />} />
 
               <Route path="crm" element={<CrmDahboard />} />
+
+              {/* apollo -settings--security-- 27:01:25-- */}
+
+              <Route path="security" element={<SecurityPage />} />
             </Route>
           </>
         )}
