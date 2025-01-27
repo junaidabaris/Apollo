@@ -1,8 +1,9 @@
+import AccountComponent from "../../../components/objects/accounts";
 
 function AccountPages() {
     return (
         <div>
-          {/* <ContactsComponent/> */}
+          <AccountComponent/>
         </div>
     );
 }
