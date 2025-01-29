@@ -24,7 +24,7 @@ const Playlists = () => {
                                 <div className="table-responsive active-projects style-1">
                                     <div className="tbl-caption">
                                         <h4 className="heading mb-0 p-2">Playlist</h4>
-                                        <Link to='/email-add' className="btn btn-primary">Create Playlist</Link>
+                                        <Link to='/playlists-add' className="btn btn-primary">Create Playlist</Link>
                                     </div>
                                     <div id="banner-tblwrapper_wrapper" className="dataTables_wrapper no-footer">
                                         <div className="dt-buttons">

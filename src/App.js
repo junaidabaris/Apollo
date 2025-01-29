@@ -33,6 +33,14 @@ import EmailPage from "./pages/engage/emails";
 import EmailAdd from "./components/engage/emails/emailsAdd/EmailAdd";
 import MeatingPage from "./pages/meetings";
 import PlayListPage from "./pages/playlists";
+import PlaylistsAdd from "./components/playlists/playlistsAdd/PlaylistsAdd";
+import SingnalPage from "./pages/idealCustomerProfile/signals";
+import SignalsAdd from "./components/idealCustomerProfile/signals/signalsAdd/SignalsAdd";
+import ScoringPage from "./pages/idealCustomerProfile/scoring";
+import ScoringAdd from "./components/idealCustomerProfile/scoring/scoringAdd/ScoringAdd";
+import PersonasPage from "./pages/idealCustomerProfile/personas";
+import PersonasAdd from "./components/idealCustomerProfile/personas/personasAdd/PersonasAdd";
+import AccountSegmentsPage from "./pages/idealCustomerProfile/accountSegments";
 
 
 function App() {
@@ -135,7 +143,15 @@ function App() {
               <Route path="email-add" element={<EmailAdd />} />
               <Route path="meetings" element={<MeatingPage />} />
               <Route path="playlists" element={<PlayListPage />} />
+              <Route path="playlists-add" element={<PlaylistsAdd />} />
+              <Route path="signals" element={<SingnalPage />} />
+              <Route path="signals-add" element={<SignalsAdd />} />
 
+              <Route path="scoring-models" element={<ScoringPage />} />
+              <Route path="scoring-add" element={<ScoringAdd />} />
+              <Route path="personas" element={<PersonasPage />} />
+              <Route path="personas-add" element={<PersonasAdd />} />
+              <Route path="account-segment" element={<AccountSegmentsPage />} />
               <Route path="*" element={<PageNotFound />} />
             </Route>
           </>
