@@ -1,21 +1,24 @@
-import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  Routes,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 
 import "./assets/css/style.css";
 // import "./components/upgrade-member/member.css"
 import "react-toastify/dist/ReactToastify.css";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 // import "./assets/css/style.css";
 import "./common/CustomInputField/index.module.scss";
-import "./assets/css/project.css"
+import "./assets/css/project.css";
 
-import { getMenusdata, sendNotification } from "./api/login/Login";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { setIsLogin } from "./slice/auth";
 import { getToken2 } from "./utils/localStorage";
-import { getToken } from 'firebase/messaging';
-import { messaging } from "./firebase/fireBase";
 import LoginPage from "./pages/login";
 import ForgotPassword from "./components/forgotPassword/ForgotPassword";
 import LoginPasswordReset from "./pages/paswordResetPages";
@@ -27,6 +30,10 @@ import PlansPage from "./pages/plans";
 import CreateDeal from "./pages/createDeal";
 import ListDeal from "./pages/listDeal";
 import ListDealEdit from "./pages/listDealEdit";
+import AnalyticsPage from "./pages/tools&automationPage/analytics";
+import WorkFlowsPage from "./pages/tools&automationPage/workFlows";
+import FilterWf from "./components/tools&automation/workflows/workflowHeader/filterWf/FilterWf";
+import TasksPage from "./pages/tools&automationPage/tasks";
 import SequencePage from "./pages/engage/sequences";
 import SequencesAdd from "./components/engage/sequences/sequencesAdd/SequencesAdd";
 import EmailPage from "./pages/engage/emails";
@@ -41,11 +48,33 @@ import ScoringAdd from "./components/idealCustomerProfile/scoring/scoringAdd/Sco
 import PersonasPage from "./pages/idealCustomerProfile/personas";
 import PersonasAdd from "./components/idealCustomerProfile/personas/personasAdd/PersonasAdd";
 import AccountSegmentsPage from "./pages/idealCustomerProfile/accountSegments";
-
+import NotificationsPage from "./pages/settingsPage/notifications";
+import PermissionProfilesPage from "./pages/settingsPage/users&teams/permissionProfiles";
+import TeamsPage from "./pages/settingsPage/users&teams/teams";
+import UsersPage from "./pages/settingsPage/users&teams/users";
+import ListPages from "./pages/Lists";
+import CompaniesPage from "./pages/companies";
+import PeoplesPage from "./pages/peoples";
+import SequencePages from "./pages/sequense";
+import ProfilePage from "./pages/profile";
+import MailboxesPages from "./pages/Mailboxes";
+import IntegrationsPages from "./pages/integrations";
+import ContactsPages from "./pages/objects/contacts";
+import AccountPages from "./pages/objects/accounts";
+import DealsPages from "./pages/objects/deals";
+import BillOfMaterials from "./pages/billOfMaterials";
+import ApInvoice from "./pages/apInvoice/apInvoice";
+import SalesAnalysisReport from "./pages/salesAnalysisReport";
+import AnalysisQuarterly from "./pages/analysisQuarterly";
+import ResourceCapacity from "./pages/resourceCapacity";
+import ProjectServer from "./pages/projectServer";
+import PurchaseDashboard from "./pages/purchasedashboard/index.js";
+import BusinessPatner from "./pages/Bussniss/index.js";
+import CrmDahboard from "./pages/crmdashboard/index.js";
+import SecurityPage from "./pages/settingsPage/users&teams/security";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [navigateState, setNavigateState] = useState(null);
   const { isLogin } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -58,56 +87,12 @@ function App() {
       dispatch(setIsLogin({ isLogin: true }));
       navigate(location?.pathname);
     }
-
   }, []);
 
   useEffect(() => {
     setIsAuthenticated(isLogin);
-
-
   }, [isLogin]);
 
-
-
-
-
-  const [tokenNoti, setokenNoti] = useState(null);
-
-  const sendNotification2 = async (token) => {
-    try {
-      let result = await sendNotification({ type: 'Browser', token: token });
-
-    } catch (error) {
-
-    }
-  };
-
-  async function requestPermissions() {
-
-
-    Notification.requestPermission().then((permission) => {
-      if (permission === 'granted') {
-        getToken(messaging, { vapidKey: 'BPmnN4enu6SLX6ASW7dctK6Q0j3GnTUhL5ZRi16I6RDqGav4khN2JIHmdKcL4eTqwRBu-PWmaUa1G-Oaor7AcF4' }).then((currentToken) => {
-          if (currentToken) {
-            console.log('Got FCM device token:', currentToken);
-            setokenNoti(currentToken)
-            if (isLogin) {
-              sendNotification2(currentToken)
-
-            }
-            // Send the token to your server or display it on the UI
-          } else {
-            console.log('No registration token available. Request permission to generate one.');
-          }
-        }).catch((err) => {
-          console.log('An error occurred while retrieving token. ', err);
-        });
-      }
-    })
-  }
-  // console.log(window.localStorage.getItem('dashRout') == null);
-
-  const [mnualData, setManualData] = useState()
   return (
     <>
       <Routes>
@@ -122,7 +107,12 @@ function App() {
           </>
         ) : (
           <>
-            <Route path="/" element={<Navigate to={`${window.localStorage.getItem('dashRout')}`} />} />
+            <Route
+              path="/"
+              element={
+                <Navigate to={`${window.localStorage.getItem("dashRout")}`} />
+              }
+            />
             {/* <Route path="/" element={<Navigate to={`/admin`} />} /> */}
             <Route
               path=""
@@ -147,12 +137,62 @@ function App() {
               <Route path="signals" element={<SingnalPage />} />
               <Route path="signals-add" element={<SignalsAdd />} />
 
+              <Route path="list" element={<ListPages />} />
+              <Route path="companies" element={<CompaniesPage />} />
+              <Route path="peoples" element={<PeoplesPage />} />
+              <Route path="sequences-edit/:id" element={<SequencePages />} />
+
+              <Route path="profile" element={<ProfilePage />} />
+              <Route path="mailboxes" element={<MailboxesPages />} />
+              <Route path="integrations" element={<IntegrationsPages />} />
+              <Route path="contacts/stages" element={<ContactsPages />} />
+              <Route path="accounts/stages" element={<AccountPages />} />
+              <Route path="settings/deals" element={<DealsPages />} />
+
               <Route path="scoring-models" element={<ScoringPage />} />
               <Route path="scoring-add" element={<ScoringAdd />} />
               <Route path="personas" element={<PersonasPage />} />
               <Route path="personas-add" element={<PersonasAdd />} />
               <Route path="account-segment" element={<AccountSegmentsPage />} />
               <Route path="*" element={<PageNotFound />} />
+
+              {/* daud--route */}
+
+              <Route path="analytics" element={<AnalyticsPage />} />
+              <Route path="workflows" element={<WorkFlowsPage />} />
+              <Route path="workflows/filterWF" element={<FilterWf />} />
+
+              <Route path="tasks" element={<TasksPage />} />
+
+              {/* --settings----25:01:25--- */}
+              {/* --settings----25:01:25--- */}
+
+              <Route path="Notifications" element={<NotificationsPage />} />
+              <Route
+                path="permissionProfiles"
+                element={<PermissionProfilesPage />}
+              />
+              <Route path="teams" element={<TeamsPage />} />
+              <Route path="users" element={<UsersPage />} />
+              {/* meraj  */}
+
+              <Route path="bill-materials" element={<BillOfMaterials />} />
+              <Route path="ap-invoice" element={<ApInvoice />} />
+              <Route path="sales-analysis" element={<SalesAnalysisReport />} />
+              <Route path="analysis-quarterly" element={<AnalysisQuarterly />} />
+              <Route path="resource-capacity" element={<ResourceCapacity />} />
+              <Route path="project-server" element={<ProjectServer />} />
+
+              {/* atif */}
+              <Route path="purchasedashboard" element={<PurchaseDashboard />} />
+              {/* <Route path="alerts" element={<Alerts />} /> */}
+              <Route path="businesspatner" element={<BusinessPatner />} />
+
+              <Route path="crm" element={<CrmDahboard />} />
+
+              {/* apollo -settings--security-- 27:01:25-- */}
+
+              <Route path="security" element={<SecurityPage />} />
             </Route>
           </>
         )}

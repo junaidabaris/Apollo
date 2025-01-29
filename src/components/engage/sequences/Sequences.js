@@ -1,5 +1,5 @@
-import { Pagination } from "antd"
-import Breadcrumbs from "../../../common/breadcrumb/Breadcrumbs"
+import { Pagination } from "antd";
+import Breadcrumbs from "../../../common/breadcrumb/Breadcrumbs";
 import { Link } from "react-router-dom";
 import SequencesFilter from "./sequencesFilter/SequencesFilter";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -17,7 +17,6 @@ const Sequences = () => {
         path_2: ``
     };
     const [modalShow, setModalShow] = useState(false);
-    console.log(modalShow);
     const [modalShowAchicve, setModalShowAchicve] = useState(false);
     const [modalShowClone, setModalShowClone] = useState(false);
     const [open, setOpen] = useState(false)
@@ -93,7 +92,7 @@ const Sequences = () => {
                                                                     <Link to='' onClick={() => setModalShowClone(true)}>Clone</Link>
                                                                 </div >
                                                                 <div className="link-set-set">
-                                                                    <Link to=''>Edit</Link>
+                                                                    <Link to='/sequences-edit/212'>Edit</Link>
                                                                 </div>
                                                             </div>
                                                         )}
@@ -127,40 +126,37 @@ const Sequences = () => {
                                                         </td>
                                                     </tr>
                                                 })} */}
-                                            </tbody>
-                                        </table>
-                                        <div className="dataTables_info" role="status" aria-live="polite">
-                                            Total 0 entries
-                                        </div>
-                                        <div className="dataTables_paginate paging_simple_numbers">
-                                            <Pagination
-                                            // defaultCurrent={1}
-                                            // onChange={onChangeVal}
-                                            // total={totalCount}
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                      </tbody>
+                    </table>
+                    <div
+                      className="dataTables_info"
+                      role="status"
+                      aria-live="polite"
+                    >
+                      Total 0 entries
                     </div>
+                    <div className="dataTables_paginate paging_simple_numbers">
+                      <Pagination
+                      // defaultCurrent={1}
+                      // onChange={onChangeVal}
+                      // total={totalCount}
+                      />
+                    </div>
+                  </div>
                 </div>
-                <Share
-                    show={modalShow}
-                    onHide={() => setModalShow(false)}
-                />
-                <Archive
-                    show={modalShowAchicve}
-                    onHide={() => setModalShowAchicve(false)}
-                />
-                <Clone
-                    show={modalShowClone}
-                    onHide={() => setModalShowClone(false)}
-                />
+              </div>
             </div>
+          </div>
+        </div>
+        <Share show={modalShow} onHide={() => setModalShow(false)} />
+        <Archive
+          show={modalShowAchicve}
+          onHide={() => setModalShowAchicve(false)}
+        />
+        <Clone show={modalShowClone} onHide={() => setModalShowClone(false)} />
+      </div>
+    </>
+  );
+};
 
-        </>
-    )
-}
-
-export default Sequences
+export default Sequences;
