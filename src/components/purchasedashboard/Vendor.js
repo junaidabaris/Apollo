@@ -4,8 +4,8 @@ import { Bar } from '@ant-design/charts';
 const Vendor = () => {
   const data = [
     { year: 'V10000', value: 2500000 }, // Use numeric values
-    { year: 'V23000', value: 1000000},
-    { year: 'V50000', value: 1500000  },
+    { year: 'V23000', value: 1000000 },
+    { year: 'V50000', value: 1500000 },
     { year: 'V21000', value: 500000 },
     { year: 'V60000', value: 1300000 },
   ];
