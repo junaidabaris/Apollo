@@ -72,6 +72,12 @@ import PurchaseDashboard from "./pages/purchasedashboard/index.js";
 import BusinessPatner from "./pages/Bussniss/index.js";
 import CrmDahboard from "./pages/crmdashboard/index.js";
 import SecurityPage from "./pages/settingsPage/users&teams/security";
+import ConfigurationPage from "./pages/prospectingPages/configurationPage/index.js";
+import WebsiteVisitorsPage from "./pages/prospectingPages/websiteVisitorsPage/index.js";
+import ContextsPage from "./pages/prospectingPages/contextsPage/index.js";
+import TrackingSubdomainPage from "./pages/salesEngagementPages/trackingSubdomainPage/index.js";
+import SequencesSalesEngagementPage from "./pages/salesEngagementPages/sequencesSalesEngagementPage/index.js";
+import EditScheduletab from "./components/salesEngagementComps/sequencesSalesEngagement/EditScheduletab.js";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -193,6 +199,14 @@ function App() {
               {/* apollo -settings--security-- 27:01:25-- */}
 
               <Route path="security" element={<SecurityPage />} />
+
+              <Route path="configuration" element={<ConfigurationPage />} />
+              <Route path="websiteVisitors" element={<WebsiteVisitorsPage />} />
+              <Route path="contexts" element={<ContextsPage />} />
+              <Route path="tracking-subdomains" element={<TrackingSubdomainPage />} />
+              <Route path="salesEngagement/sequences" element={<SequencesSalesEngagementPage />} />
+              <Route path="scheduletab/edit/:id" element={<EditScheduletab />} />
+
             </Route>
           </>
         )}

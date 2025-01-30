@@ -71,7 +71,7 @@ function SecurityTab() {
   const [data, setData] = useState(secTabData);
 
   console.log(data[0]);
-  
+
   const items = [
     {
       key: "1",
