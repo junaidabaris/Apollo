@@ -7,7 +7,7 @@ import { baseUrlImage } from "../../baseUrl";
 import { useDispatch } from "react-redux";
 import { setIsLogin } from "../../slice/auth";
 import { removeItemFromLocalStorage } from "../../utils/localStorage";
-import Offcanvas from 'react-bootstrap/Offcanvas';
+import Offcanvas from "react-bootstrap/Offcanvas";
 // import NotificationPage from "../../pages/notification";
 import { Spinner } from "react-bootstrap";
 function Header({ showAsideBar, toggle, setToggle }) {
@@ -61,8 +61,7 @@ function Header({ showAsideBar, toggle, setToggle }) {
   const getCountNotification = async () => {
     try {
       const data = await countNotification();
-      setDataCount(data?.data?.staff
-      );
+      setDataCount(data?.data?.staff);
     } catch (error) {
       alert(error.message);
     }
@@ -72,19 +71,16 @@ function Header({ showAsideBar, toggle, setToggle }) {
     getCountNotification();
   }, []);
 
-
   const handleLogOut = () => {
     // removeItemFromLocalStorage("userToken");
-    localStorage.clear()
-    window.localStorage.clear()
+    localStorage.clear();
+    window.localStorage.clear();
     dispatch(setIsLogin({ isLogin: false }));
-
   };
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const changeRoute = (route) => {
-    navigate('/notification')
+    navigate("/notification");
   };
-
 
   const [show, setShow] = useState(false);
 
@@ -136,8 +132,10 @@ function Header({ showAsideBar, toggle, setToggle }) {
                 </form>
               </div>
               <ul className="navbar-nav header-right">
-
-                <li className="nav-item dropdown notification_dropdown" onClick={handleShow}>
+                <li
+                  className="nav-item dropdown notification_dropdown"
+                  onClick={handleShow}
+                >
                   <a
                     className="nav-link d-flex"
                     href="javascript:void(0);"
@@ -151,7 +149,9 @@ function Header({ showAsideBar, toggle, setToggle }) {
                         {dataCount?.count}
                       </span>
                     </Spinner> */}
-                    <button class="notification-button" aria-label="Кнопка">{dataCount?.count}</button>
+                    <button className="notification-button" aria-label="Кнопка">
+                      {dataCount?.count}
+                    </button>
                     <svg
                       width={24}
                       height={24}
@@ -172,7 +172,6 @@ function Header({ showAsideBar, toggle, setToggle }) {
                         strokeLinejoin="round"
                       />
                     </svg>
-
                   </a>
                   <div className="dropdown-menu dropdown-menu-end">
                     <div
@@ -377,19 +376,14 @@ function Header({ showAsideBar, toggle, setToggle }) {
                   </div>
                 </li>
 
-
                 <Offcanvas show={show} onHide={handleClose} placement="end">
                   <Offcanvas.Header closeButton>
                     <Offcanvas.Title>
                       <h2>Notification</h2>
                     </Offcanvas.Title>
                   </Offcanvas.Header>
-                  <Offcanvas.Body>
-                    {/* <NotificationPage /> */}
-                  </Offcanvas.Body>
+                  <Offcanvas.Body>{/* <NotificationPage /> */}</Offcanvas.Body>
                 </Offcanvas>
-
-
 
                 <li className="nav-item dropdown notification_dropdown">
                   <a className="nav-link bell-link" href="javascript:void(0);">
@@ -483,7 +477,6 @@ function Header({ showAsideBar, toggle, setToggle }) {
                             <img
                               src={`${baseUrlImage}${data?.profile}`}
                               alt="profile"
-
                             />
                           ) : (
                             <img src={profile} alt="profile" />
@@ -498,9 +491,8 @@ function Header({ showAsideBar, toggle, setToggle }) {
                     {toggle ? (
                       <div
                         className="dropdown-menu dropdown-menu-end dropdown-menu-2 cusDIv"
-                      // style={{}}
+                        // style={{}}
                       >
-
                         <div className="card border-0 mb-0">
                           <div className="card-header py-2">
                             <div className="products">
@@ -512,7 +504,7 @@ function Header({ showAsideBar, toggle, setToggle }) {
                                     width: "55px",
                                     height: "55px",
                                     borderRadius: "100%",
-                                    objectFit: "cover"
+                                    objectFit: "cover",
                                   }}
                                 />
                               ) : (
@@ -524,7 +516,10 @@ function Header({ showAsideBar, toggle, setToggle }) {
                               </div>
                             </div>
                           </div>
-                          <div className="card-body px-0 py-2" onClick={() => setToggle(!toggle)}>
+                          <div
+                            className="card-body px-0 py-2"
+                            onClick={() => setToggle(!toggle)}
+                          >
                             <Link
                               to="profile"
                               className="dropdown-item ai-icon "
@@ -557,9 +552,11 @@ function Header({ showAsideBar, toggle, setToggle }) {
                               </svg>
                               <span className="ms-2">Profile </span>
                             </Link>
-
                           </div>
-                          <div className="card-body px-0 py-2" onClick={() => setToggle(!toggle)}>
+                          <div
+                            className="card-body px-0 py-2"
+                            onClick={() => setToggle(!toggle)}
+                          >
                             <Link
                               to="staff-kyc_details"
                               className="dropdown-item ai-icon "
@@ -592,7 +589,6 @@ function Header({ showAsideBar, toggle, setToggle }) {
                               </svg>
                               <span className="ms-2">Staff KYC </span>
                             </Link>
-
                           </div>
                           {/* <div className="card-body px-0 py-2" onClick={() => setToggle(!toggle)}>
                             <Link
@@ -630,7 +626,6 @@ function Header({ showAsideBar, toggle, setToggle }) {
 
                           </div> */}
                           <div className="card-footer px-0 py-2">
-
                             <a
                               href="#"
                               className="dropdown-item ai-icon"
@@ -664,7 +659,6 @@ function Header({ showAsideBar, toggle, setToggle }) {
                 </li>
               </ul>
             </div>
-
           </nav>
         </div>
       </div>

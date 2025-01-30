@@ -64651,3 +64651,20 @@ background-color: #CACACC;
     padding: 5px 5px 0px 0px;
     margin-right: 10px;
 }
+
+
+/* ---daud css strt--27:01:25---- */
+.Free_P_box{
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+
+  border-radius: 5px;
+}
+.Free_P_box_h{
+  border-bottom: 1px solid grey;
+}
+.total_m_box{
+  background-color: #F7F7F7;
+}
+.c_body_box{
+  
+}

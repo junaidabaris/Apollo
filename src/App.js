@@ -43,7 +43,7 @@ import PlayListPage from "./pages/playlists";
 import NotificationsPage from "./pages/settingsPage/notifications";
 import PermissionProfilesPage from "./pages/settingsPage/users&teams/permissionProfiles";
 import TeamsPage from "./pages/settingsPage/users&teams/teams";
-import UsersPage from "./pages/settingsPage/users&teams/users"; 
+import UsersPage from "./pages/settingsPage/users&teams/users";
 import ListPages from "./pages/Lists";
 import CompaniesPage from "./pages/companies";
 import PeoplesPage from "./pages/peoples";
@@ -64,6 +64,8 @@ import PurchaseDashboard from "./pages/purchasedashboard/index.js";
 import BusinessPatner from "./pages/Bussniss/index.js";
 import CrmDahboard from "./pages/crmdashboard/index.js";
 import SecurityPage from "./pages/settingsPage/users&teams/security";
+import PlaneOverviewPage from "./pages/settingsPage/billingPage/planeOverview/index.js";
+import CreditUsagePage from "./pages/settingsPage/billingPage/creditUsage/index.js";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -163,7 +165,10 @@ function App() {
               <Route path="bill-materials" element={<BillOfMaterials />} />
               <Route path="ap-invoice" element={<ApInvoice />} />
               <Route path="sales-analysis" element={<SalesAnalysisReport />} />
-              <Route path="analysis-quarterly" element={<AnalysisQuarterly />} />
+              <Route
+                path="analysis-quarterly"
+                element={<AnalysisQuarterly />}
+              />
               <Route path="resource-capacity" element={<ResourceCapacity />} />
               <Route path="project-server" element={<ProjectServer />} />
 
@@ -177,6 +182,9 @@ function App() {
               {/* apollo -settings--security-- 27:01:25-- */}
 
               <Route path="security" element={<SecurityPage />} />
+              <Route path="plan-overview" element={<PlaneOverviewPage />} />
+
+              <Route path="credit-usage" element={<CreditUsagePage />} />
             </Route>
           </>
         )}
