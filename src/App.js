@@ -40,6 +40,14 @@ import EmailPage from "./pages/engage/emails";
 import EmailAdd from "./components/engage/emails/emailsAdd/EmailAdd";
 import MeatingPage from "./pages/meetings";
 import PlayListPage from "./pages/playlists";
+import PlaylistsAdd from "./components/playlists/playlistsAdd/PlaylistsAdd";
+import SingnalPage from "./pages/idealCustomerProfile/signals";
+import SignalsAdd from "./components/idealCustomerProfile/signals/signalsAdd/SignalsAdd";
+import ScoringPage from "./pages/idealCustomerProfile/scoring";
+import ScoringAdd from "./components/idealCustomerProfile/scoring/scoringAdd/ScoringAdd";
+import PersonasPage from "./pages/idealCustomerProfile/personas";
+import PersonasAdd from "./components/idealCustomerProfile/personas/personasAdd/PersonasAdd";
+import AccountSegmentsPage from "./pages/idealCustomerProfile/accountSegments";
 import NotificationsPage from "./pages/settingsPage/notifications";
 import PermissionProfilesPage from "./pages/settingsPage/users&teams/permissionProfiles";
 import TeamsPage from "./pages/settingsPage/users&teams/teams";
@@ -66,6 +74,12 @@ import CrmDahboard from "./pages/crmdashboard/index.js";
 import SecurityPage from "./pages/settingsPage/users&teams/security";
 import PlaneOverviewPage from "./pages/settingsPage/billingPage/planeOverview/index.js";
 import CreditUsagePage from "./pages/settingsPage/billingPage/creditUsage/index.js";
+import ConfigurationPage from "./pages/prospectingPages/configurationPage/index.js";
+import WebsiteVisitorsPage from "./pages/prospectingPages/websiteVisitorsPage/index.js";
+import ContextsPage from "./pages/prospectingPages/contextsPage/index.js";
+import TrackingSubdomainPage from "./pages/salesEngagementPages/trackingSubdomainPage/index.js";
+import SequencesSalesEngagementPage from "./pages/salesEngagementPages/sequencesSalesEngagementPage/index.js";
+import EditScheduletab from "./components/salesEngagementComps/sequencesSalesEngagement/EditScheduletab.js";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -127,6 +141,9 @@ function App() {
               <Route path="email-add" element={<EmailAdd />} />
               <Route path="meetings" element={<MeatingPage />} />
               <Route path="playlists" element={<PlayListPage />} />
+              <Route path="playlists-add" element={<PlaylistsAdd />} />
+              <Route path="signals" element={<SingnalPage />} />
+              <Route path="signals-add" element={<SignalsAdd />} />
 
               <Route path="list" element={<ListPages />} />
               <Route path="companies" element={<CompaniesPage />} />
@@ -140,6 +157,11 @@ function App() {
               <Route path="accounts/stages" element={<AccountPages />} />
               <Route path="settings/deals" element={<DealsPages />} />
 
+              <Route path="scoring-models" element={<ScoringPage />} />
+              <Route path="scoring-add" element={<ScoringAdd />} />
+              <Route path="personas" element={<PersonasPage />} />
+              <Route path="personas-add" element={<PersonasAdd />} />
+              <Route path="account-segment" element={<AccountSegmentsPage />} />
               <Route path="*" element={<PageNotFound />} />
 
               {/* daud--route */}
@@ -185,6 +207,14 @@ function App() {
               <Route path="plan-overview" element={<PlaneOverviewPage />} />
 
               <Route path="credit-usage" element={<CreditUsagePage />} />
+
+              <Route path="configuration" element={<ConfigurationPage />} />
+              <Route path="websiteVisitors" element={<WebsiteVisitorsPage />} />
+              <Route path="contexts" element={<ContextsPage />} />
+              <Route path="tracking-subdomains" element={<TrackingSubdomainPage />} />
+              <Route path="salesEngagement/sequences" element={<SequencesSalesEngagementPage />} />
+              <Route path="scheduletab/edit/:id" element={<EditScheduletab />} />
+
             </Route>
           </>
         )}

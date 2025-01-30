@@ -8,8 +8,8 @@ const Playlists = () => {
   const breadCrumbsTitle = {
     id: "1",
     title_1: "Playlist",
-    title_2: "playlist List",
-    path_2: ``,
+    title_2: 'playlist List',
+    path_2: ``
   };
   return (
     <>
@@ -23,41 +23,24 @@ const Playlists = () => {
                 <div className="table-responsive active-projects style-1">
                   <div className="tbl-caption">
                     <h4 className="heading mb-0 p-2">Playlist</h4>
-                    <Link to="/email-add" className="btn btn-primary">
-                      Create Playlist
-                    </Link>
+                    <Link to='/playlists-add' className="btn btn-primary">Create Playlist</Link>
                   </div>
-                  <div
-                    id="banner-tblwrapper_wrapper"
-                    className="dataTables_wrapper no-footer"
-                  >
+                  <div id="banner-tblwrapper_wrapper" className="dataTables_wrapper no-footer">
                     <div className="dt-buttons">
-                      <button
-                        className="dt-button buttons-excel buttons-html5 btn btn-sm border-0"
-                        tabIndex={0}
-                        aria-controls="banner-tblwrapper"
-                        type="button"
-                      >
-                        <span>
-                          <i className="fa-solid fa-file-excel" /> Export Report
-                        </span>
+                      <button className="dt-button buttons-excel buttons-html5 btn btn-sm border-0" tabIndex={0} aria-controls="banner-tblwrapper" type="button">
+                        <span><i className="fa-solid fa-file-excel" /> Export Report</span>
                       </button>
                     </div>
-                    <table
-                      id="banner-tblwrapper"
-                      className="table dataTable no-footer"
-                      role="grid"
-                      aria-describedby="banner-tblwrapper_info"
-                    >
+                    <table id="banner-tblwrapper" className="table dataTable no-footer" role="grid" aria-describedby="banner-tblwrapper_info">
                       <thead>
                         <tr role="row">
-                          <th style={{ width: "50px" }}>S.No</th>
-                          <th style={{ width: "150px" }}>Playlist</th>
-                          <th style={{ width: "150px" }}>Playlist type</th>
-                          <th style={{ width: "150px" }}>Videos</th>
-                          <th style={{ width: "150px" }}>Playlist owner</th>
-                          <th style={{ width: "150px" }}>Last modified</th>
-                          <th style={{ width: "150px" }}>Action</th>
+                          <th style={{ width: '50px' }}>S.No</th>
+                          <th style={{ width: '150px' }}>Playlist</th>
+                          <th style={{ width: '150px' }}>Playlist type</th>
+                          <th style={{ width: '150px' }}>Videos</th>
+                          <th style={{ width: '150px' }}>Playlist owner</th>
+                          <th style={{ width: '150px' }}>Last modified</th>
+                          <th style={{ width: '150px' }}>Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -68,6 +51,7 @@ const Playlists = () => {
                           <td>--</td>
                           <td>--</td>
                           <td>--</td>
+
                         </tr>
                         {/* {data && data?.map((item, i) => {
                                                     return <tr role="row" key={item?._id}>

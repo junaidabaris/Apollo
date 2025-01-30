@@ -30,7 +30,7 @@ function Conversations() {
             <h6>Revoke access to all shared recording links</h6>
             <p>All individuals that you’ve shared recordings with will no longer be able to access them.</p>
             <button style={{ marginBottom: "20px", padding: "10px 15px", backgroundColor: "#f5f5f5", border: "1px solid #ddd", borderRadius: "5px", cursor: "pointer", width: "100%" }}>
-              Revoke Access
+                Revoke Access
             </button>
         </div>
     );
