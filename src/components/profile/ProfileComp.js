@@ -27,14 +27,14 @@ const ProfileComp = () => {
                                     </div>
                                     <div className="row" style={{ margin: "10px 0" }}>
                                         <div className="col-6">
-                                            <AccountInfo/>
-                                            <CustomUser/>
-                                            <Extension/>
+                                            <AccountInfo />
+                                            <CustomUser />
+                                            <Extension />
                                         </div>
                                         <div className="col-6">
-                                            <EmailSetting/>
-                                            <EmailExtention/>
-                                            <Conversations/>
+                                            <EmailSetting />
+                                            <EmailExtention />
+                                            <Conversations />
                                         </div>
                                     </div>
                                 </div>
