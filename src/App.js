@@ -72,6 +72,8 @@ import PurchaseDashboard from "./pages/purchasedashboard/index.js";
 import BusinessPatner from "./pages/Bussniss/index.js";
 import CrmDahboard from "./pages/crmdashboard/index.js";
 import SecurityPage from "./pages/settingsPage/users&teams/security";
+import PlaneOverviewPage from "./pages/settingsPage/billingPage/planeOverview/index.js";
+import CreditUsagePage from "./pages/settingsPage/billingPage/creditUsage/index.js";
 import ConfigurationPage from "./pages/prospectingPages/configurationPage/index.js";
 import WebsiteVisitorsPage from "./pages/prospectingPages/websiteVisitorsPage/index.js";
 import ContextsPage from "./pages/prospectingPages/contextsPage/index.js";
@@ -185,7 +187,10 @@ function App() {
               <Route path="bill-materials" element={<BillOfMaterials />} />
               <Route path="ap-invoice" element={<ApInvoice />} />
               <Route path="sales-analysis" element={<SalesAnalysisReport />} />
-              <Route path="analysis-quarterly" element={<AnalysisQuarterly />} />
+              <Route
+                path="analysis-quarterly"
+                element={<AnalysisQuarterly />}
+              />
               <Route path="resource-capacity" element={<ResourceCapacity />} />
               <Route path="project-server" element={<ProjectServer />} />
 
@@ -199,6 +204,9 @@ function App() {
               {/* apollo -settings--security-- 27:01:25-- */}
 
               <Route path="security" element={<SecurityPage />} />
+              <Route path="plan-overview" element={<PlaneOverviewPage />} />
+
+              <Route path="credit-usage" element={<CreditUsagePage />} />
 
               <Route path="configuration" element={<ConfigurationPage />} />
               <Route path="websiteVisitors" element={<WebsiteVisitorsPage />} />

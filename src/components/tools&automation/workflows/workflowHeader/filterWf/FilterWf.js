@@ -30,11 +30,14 @@ function FilterWf() {
               <form className="tbl-captionn">
                 <div className="row">
                   <div className="col-xl-4 mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">
+                    <label
+                      for="exampleFormControlInput1"
+                      className="form-label"
+                    >
                       Workflows Status
                     </label>
                     <select
-                      class="form-control"
+                      className="form-control"
                       aria-label="Default select example"
                     >
                       <option selected>Active</option>
@@ -47,7 +50,7 @@ function FilterWf() {
                   <div className="col-xl-4 mb-3">
                     <label
                       for="exampleFormControlInput1"
-                      class="form-label mb-1"
+                      className="form-label mb-1"
                     >
                       Owner
                     </label>
@@ -67,7 +70,10 @@ function FilterWf() {
                   </div>
 
                   <div className="col-xl-4 mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">
+                    <label
+                      for="exampleFormControlInput1"
+                      className="form-label"
+                    >
                       Folders
                     </label>
                     <div>
@@ -92,7 +98,11 @@ function FilterWf() {
           <Modal.Title>New Folder</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <input type="text" className="form-control" placeholder="Folder Name..."/>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Folder Name..."
+          />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

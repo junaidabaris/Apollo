@@ -68,7 +68,7 @@ function SideBarRight({ name, ...props }) {
   return (
     <>
       <a
-        class="sidebar-right-trigger wave-effect wave-effect-x"
+        className="sidebar-right-trigger wave-effect wave-effect-x"
         onClick={handleShow}
         data-bs-toggle="tooltip"
         data-placement="right"
@@ -76,7 +76,7 @@ function SideBarRight({ name, ...props }) {
         href="javascript:void(0);"
       >
         <span>
-          <i class="fa fa-cog fa-spin"></i>
+          <i className="fa fa-cog fa-spin"></i>
         </span>
       </a>
       <Offcanvas
@@ -140,7 +140,7 @@ function SideBarRight({ name, ...props }) {
               <label htmlFor="exampleFormControlInput2" className="form-label">
                 Select Country
               </label>
-              <select id="disabledSelect" class="form-select">
+              <select id="disabledSelect" className="form-select">
                 <option selected>--Select Country--</option>
                 <option value="1">--India--</option>
                 <option value="2">--Dubai--</option>
@@ -152,7 +152,7 @@ function SideBarRight({ name, ...props }) {
               </label>
               <select
                 id="disabledSelect"
-                class="form-select"
+                className="form-select"
                 onChange={changeLanguage}
               >
                 <option selected>--Select Language--</option>
