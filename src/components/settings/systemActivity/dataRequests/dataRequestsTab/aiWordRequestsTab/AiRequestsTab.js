@@ -1,12 +1,15 @@
+
+
+
 import Download4 from "../../../../../../assets/images/billing/download (4).png";
 import { Button } from "react-bootstrap";
 import { CiStopwatch } from "react-icons/ci";
 import { CgStopwatch } from "react-icons/cg";
 
-function AiWordUsage() {
+function AiRequestsTab() {
   return (
     <>
-      <div className="px-3 py-4">
+      <div>
         <header
           className="workflows_header d-flex align-items-center justify-content-between px-3 py-3"
           style={{ borderBottom: "1px solid rgb(211, 206, 206)" }}
@@ -83,9 +86,10 @@ function AiWordUsage() {
 
               <div className="py-3 mt-0">
                 <p className="text-start">
-                  <a href="">Fair Use Policy</a> Power-ups usage limits depend
-                  on the plan and number of seats you have. Upgrade your plan or
-                  add seats to increase your power-ups usage limits.
+                  <a href="">Fair Use Policy</a> limits plan to 5,000
+                  AI-generated words per billing cycle to prevent abuse. To
+                  increase your team's available AI-generated word usage limit,
+                  upgrade or add more seats.
                 </p>
               </div>
             </div>
@@ -140,4 +144,4 @@ function AiWordUsage() {
   );
 }
 
-export default AiWordUsage;
+export default AiRequestsTab;
