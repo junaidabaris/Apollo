@@ -1,12 +1,14 @@
+import { GoListUnordered } from "react-icons/go";
+
 import { Button } from "react-bootstrap";
 import Breadcrumbs from "../../../../common/breadcrumb/Breadcrumbs";
-import { FaUserGroup } from "react-icons/fa6";
 
-function Teams() {
+
+function GlobalPicklists() {
   const breadCrumbsTitle = {
     id: "1",
     title_1: "Settings",
-    title_2: "Teams",
+    title_2: "Global Picklists",
   };
   return (
     <div>
@@ -21,25 +23,25 @@ function Teams() {
             }}
           >
             <img
-              src="https://assets.apollo.io/imgs/eeed665e9f9a03ad9dd7..svg"
+              src="https://assets.apollo.io/imgs/966770f2df4d866f1b00..svg"
               alt=""
             />
           </div>
 
           <div className="text-center mt-3 px-5">
-            <h4>Teams</h4>
+            <h4>Global Picklists</h4>
             <p className="fs-5">
-              Create different teams to group your users together and organize
-              the types of actions they can do.
+              Create different sets of picklist values and reuse them for any of
+              your custom fields that requires a picklist.
             </p>
 
-            <Button type="button" variant="primary">
-              Upgrade To Organization
+            <Button type="button" variant="warning" className="text-dark">
+              Upgrade to Professional
             </Button>
 
             <div className="mt-3 fs-6">
-              <FaUserGroup className="me-2 mb-1" />
-              <span>Recommended for teams of 3 or more.</span>
+              <GoListUnordered className="me-2 mb-1" />
+              <span>Define picklist values that you can reuse.</span>
             </div>
           </div>
         </div>
@@ -49,4 +51,4 @@ function Teams() {
     </div>
   );
 }
-export default Teams;
+export default GlobalPicklists;

@@ -87,6 +87,10 @@ import SystemActivitylogPage from "./pages/settingsPage/systemActivityPage/syste
 import ScoringPagee from "./pages/settingsPage/scoring&signals/scoring/index.js";
 import SignalsPagee from "./pages/settingsPage/scoring&signals/signals/index.js";
 import FilterSignal from "./components/settings/scoring&signals/signals/FilterSignals.js";
+import GlobalPicklistsPage from "./pages/settingsPage/dataManagementPage/globalPicklists/index.js";
+import ImportExportPage from "./pages/settingsPage/dataManagementPage/imports&exports/index.js";
+import AiContentCenterPage from "./pages/settingsPage/dataManagementPage/aiContentCenter/index.js";
+import DataEnrichmentPage from "./pages/dataEnrichmentPage/index.js";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -241,6 +245,20 @@ function App() {
               <Route path="scoring" element={<ScoringPagee />} />
               <Route path="signal" element={<SignalsPagee />} />
               <Route path="signal/filterSignal" element={<FilterSignal />} />
+
+              <Route
+                path="global-picklists"
+                element={<GlobalPicklistsPage />}
+              />
+              <Route
+                path="imports-and-exports"
+                element={<ImportExportPage />}
+              />
+              <Route
+                path="ai-content-center"
+                element={<AiContentCenterPage />}
+              />
+              <Route path="data-enrichment" element={<DataEnrichmentPage />} />
             </Route>
           </>
         )}
