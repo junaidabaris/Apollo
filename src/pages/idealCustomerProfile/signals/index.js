@@ -1,13 +1,12 @@
-
-import React from 'react'
-import Signals from '../../../components/idealCustomerProfile/signals/Signals'
+import React from "react";
+import Signals from "../../../components/idealCustomerProfile/signals/Signals";
 
 const SingnalPage = () => {
-    return (
-        <>
-            <Signals />
-        </>
-    )
-}
+  return (
+    <>
+      <Signals />
+    </>
+  );
+};
 
-export default SingnalPage
+export default SingnalPage;

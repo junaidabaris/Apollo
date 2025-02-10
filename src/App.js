@@ -80,6 +80,17 @@ import ContextsPage from "./pages/prospectingPages/contextsPage/index.js";
 import TrackingSubdomainPage from "./pages/salesEngagementPages/trackingSubdomainPage/index.js";
 import SequencesSalesEngagementPage from "./pages/salesEngagementPages/sequencesSalesEngagementPage/index.js";
 import EditScheduletab from "./components/salesEngagementComps/sequencesSalesEngagement/EditScheduletab.js";
+import PowerUpsUsagePage from "./pages/settingsPage/billingPage/powerUpsUsage/index.js";
+import AiWordUsagePage from "./pages/settingsPage/billingPage/alWordUsage/index.js";
+import DataRequestsPage from "./pages/settingsPage/systemActivityPage/dataRequestsPage/index.js";
+import SystemActivitylogPage from "./pages/settingsPage/systemActivityPage/systemActivitylogPage/index.js";
+import ScoringPagee from "./pages/settingsPage/scoring&signals/scoring/index.js";
+import SignalsPagee from "./pages/settingsPage/scoring&signals/signals/index.js";
+import FilterSignal from "./components/settings/scoring&signals/signals/FilterSignals.js";
+import GlobalPicklistsPage from "./pages/settingsPage/dataManagementPage/globalPicklists/index.js";
+import ImportExportPage from "./pages/settingsPage/dataManagementPage/imports&exports/index.js";
+import AiContentCenterPage from "./pages/settingsPage/dataManagementPage/aiContentCenter/index.js";
+import DataEnrichmentPage from "./pages/dataEnrichmentPage/index.js";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -205,16 +216,49 @@ function App() {
 
               <Route path="security" element={<SecurityPage />} />
               <Route path="plan-overview" element={<PlaneOverviewPage />} />
-
               <Route path="credit-usage" element={<CreditUsagePage />} />
 
               <Route path="configuration" element={<ConfigurationPage />} />
               <Route path="websiteVisitors" element={<WebsiteVisitorsPage />} />
               <Route path="contexts" element={<ContextsPage />} />
-              <Route path="tracking-subdomains" element={<TrackingSubdomainPage />} />
-              <Route path="salesEngagement/sequences" element={<SequencesSalesEngagementPage />} />
-              <Route path="scheduletab/edit/:id" element={<EditScheduletab />} />
+              <Route
+                path="tracking-subdomains"
+                element={<TrackingSubdomainPage />}
+              />
+              <Route
+                path="salesEngagement/sequences"
+                element={<SequencesSalesEngagementPage />}
+              />
+              <Route
+                path="scheduletab/edit/:id"
+                element={<EditScheduletab />}
+              />
 
+              {/* 30:01:25--daud-route-- */}
+              <Route path="power-ups-usage" element={<PowerUpsUsagePage />} />
+              <Route path="aI-word-usage" element={<AiWordUsagePage />} />
+              <Route path="dataRequests" element={<DataRequestsPage />} />
+              <Route
+                path="systemActivitylog"
+                element={<SystemActivitylogPage />}
+              />
+              <Route path="scoring" element={<ScoringPagee />} />
+              <Route path="signal" element={<SignalsPagee />} />
+              <Route path="signal/filterSignal" element={<FilterSignal />} />
+
+              <Route
+                path="global-picklists"
+                element={<GlobalPicklistsPage />}
+              />
+              <Route
+                path="imports-and-exports"
+                element={<ImportExportPage />}
+              />
+              <Route
+                path="ai-content-center"
+                element={<AiContentCenterPage />}
+              />
+              <Route path="data-enrichment" element={<DataEnrichmentPage />} />
             </Route>
           </>
         )}

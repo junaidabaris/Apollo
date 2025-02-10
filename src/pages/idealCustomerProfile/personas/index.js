@@ -1,13 +1,12 @@
-
-import React from 'react'
-import Personas from '../../../components/idealCustomerProfile/personas/Personas'
+import React from "react";
+import Personas from "../../../components/idealCustomerProfile/personas/Personas";
 
 const PersonasPage = () => {
-    return (
-        <>
-            <Personas />
-        </>
-    )
-}
+  return (
+    <>
+      <Personas />
+    </>
+  );
+};
 
-export default PersonasPage
+export default PersonasPage;
