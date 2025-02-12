@@ -1,6 +1,19 @@
+import { useState } from "react";
 
 
 export const SalespersonFilter = () => {
+    const [isChecked, setIsChecked] = useState([{
+        Is_any_of : false,
+        Is_any_not_of : false,
+        Inculid_past_Company : false
+    }]);
+
+    const handleCheckboxChange = (key) => {
+        setIsChecked((prevState) => ({
+          ...prevState,
+          [key]: !prevState[key],
+        }));
+      };
     return (
         <div style={{ margin: "14px" }}>
             <div className="card">
@@ -11,39 +24,96 @@ export const SalespersonFilter = () => {
                         </div>
                         <form className="tbl-captionn">
                             <div className="row">
-                                <div className="col-xl-4 mb-3">
-                                    <label for="exampleFormControlInput1" className="form-label"> Name</label>
-                                    <input
+                                <div className="col-xl-3 mb-3 ">
+                                    <div className="d-flex gap-2 items-align-center">
+                                        <input
+                                            type="checkbox"
+                                            className="form-check-input"
+                                            id="toggleInput"
+                                            checked={isChecked.Is_any_of}
+                                            onChange={() => handleCheckboxChange("Is_any_of")}
+                                        />
+                                        <label for="exampleFormControlInput1" className="form-label"> Is any of</label>
+                                    </div>
+                                    {isChecked.Is_any_of && <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Deal Name"
-                                    />
+                                        placeholder="enter Company"
+                                    />}
                                 </div>
-                                <div className="col-xl-4 mb-3">
-                                    <label for="exampleFormControlInput1" className="form-label">Industries</label>
-                                    <select className="form-control" aria-label="Default select example">
-                                        <option selected>Open this select  Industries</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                    </select>
-                                </div>
-                            
-                                <div className="col-xl-4 mb-3">
-                                    <label for="exampleFormControlInput1" className="form-label">Key Words</label>
-                                    <input
+                                <div className="col-xl-3 mb-3">
+                                    <div className="d-flex gap-2 items-align-center">
+                                        <input
+                                            type="checkbox"
+                                            className="form-check-input"
+                                            id="toggleInput"
+                                            checked={isChecked.Is_any_not_of}
+                                            onChange={() => handleCheckboxChange("Is_any_not_of")}
+                                        />
+                                        <label for="exampleFormControlInput1" className="form-label"> Is any not of</label>
+                                    </div>
+                                    {isChecked.Is_any_not_of && <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Key Words"
-                                    />
+                                        placeholder="enter Company to excel"
+                                    />}
                                 </div>
-                                <div className="col-xl-4 mb-3">
-                                    <label for="exampleFormControlInput1" className="form-label">Location</label>
-                                    <input
+
+                                <div className="col-xl-3 mb-3">
+                                    <div className="d-flex gap-2 items-align-center">
+                                        <input
+                                            type="checkbox"
+                                            className="form-check-input"
+                                            id="toggleInput"
+                                            checked={isChecked.Inculid_past_Company}
+                                            onChange={() => handleCheckboxChange("Inculid_past_Company")}
+                                        />
+                                        <label for="exampleFormControlInput1" className="form-label"> Inculid past Company</label>
+                                    </div>
+                                   {isChecked.Inculid_past_Company && <input
                                         type="text"
                                         className="form-control"
-                                        placeholder="Location"
-                                    />
+                                        placeholder="Enter past companies"
+                                    />}
+                                </div>
+                                <div className="col-xl-3 mb-3">
+                                    <div className="d-flex gap-2 items-align-center">
+                                        <input
+                                            type="checkbox"
+                                            className="form-check-input"
+                                        />
+                                        <label for="exampleFormControlInput1" className="form-label"> Inculid past Company</label>
+                                    </div>
+                                </div>
+                                <div className="col-xl-6 mt-2 mb-3">
+                                    <button className="btn m-0 btn-light w-100 shadow">
+                                        <div className="d-flex gap-2 items-align-center">
+                                            <input
+                                                type="radio" name="know"
+                                                className="form-check-input"
+                                            />
+                                            <label for="exampleFormControlInput1" className="form-label"> Is Know</label>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div className="col-xl-6 mt-2 mb-3">
+                                    <button className="btn m-0 btn-light w-100 shadow">
+                                        <div className="d-flex gap-2 items-align-center">
+                                            <input
+                                                type="radio" name="know"
+                                                className="form-check-input"
+                                            />
+                                            <label for="exampleFormControlInput1" className="form-label"> Is unKnow</label>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div className="col-xl-6 mt-2 mb-3">
+                                    <label for="exampleFormControlInput1" className="form-label"> Include list of companies</label>
+                                    <textarea class="form-control" />
+                                </div>
+                                <div className="col-xl-6 mt-2 mb-3">
+                                    <label for="exampleFormControlInput1" className="form-label"> Exclude list of companies</label>
+                                    <textarea class="form-control" />
                                 </div>
                                 <div className="col-xl-12 text-center">
                                     <button type="button" className="btn btn-primary">

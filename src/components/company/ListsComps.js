@@ -2,17 +2,22 @@
 import { SalespersonFilter } from "./salespersonFilter/SalespersonFilter"
 import Breadcrumbs from "../../common/breadcrumb/Breadcrumbs";
 import { Pagination } from "antd";
+import { Link } from "react-router-dom";
+import SelectedConmany from "./salespersonFilter/SelectedConmany";
+import { useState } from "react";
 const ListsComps = () => {
     const breadCrumbsTitle = {
         id: "1",
         title_1: "Company",
     };
 
+    const [isChecked , setIsChecked] = useState(false) 
 
     return (
         <>
             <Breadcrumbs breadCrumbsTitle={breadCrumbsTitle} />
             <SalespersonFilter />
+            {isChecked &&<SelectedConmany />}
             <div>
                 <div className="row m-2">
                     <div className="col-xl-12">
@@ -32,19 +37,50 @@ const ListsComps = () => {
                                         <table id="banner-tblwrapper" className="table dataTable no-footer" role="grid" aria-describedby="banner-tblwrapper_info">
                                             <thead>
                                                 <tr role="row">
-                                                    <th style={{ width: '50px' }}>S.No</th>
+                                                    <th style={{ width: '50px' }}>
+                                                    <input class="form-check-input" type="checkbox" />
+                                                    </th>
                                                     <th style={{ width: '150px' }}>Name</th>
-                                                    <th style={{ width: '150px' }}>Links </th>
-                                                    <th style={{ width: '150px' }}>	Number of Employees</th>
-                                                    <th style={{ width: '150px' }}>Industries</th>
-                                                    <th style={{ width: '150px' }}>Keywords</th>
-                                                    <th style={{ width: '150px' }}>location</th>
-                                                    <th style={{ width: '100px' }}>Actin</th>
+                                                    <th style={{ width: '150px' }}>Job Title </th>
+                                                    <th style={{ width: '150px' }}>Company</th>
+                                                    <th style={{ width: '150px' }}>Email</th>
+                                                    <th style={{ width: '150px' }}>Phone Number</th>
+                                                    <th style={{ width: '150px' }}>Links</th>
+                                                    <th style={{ width: '100px' }}>Action</th>
+                                                    <th style={{ width: '100px' }}>Location</th>
+                                                    <th style={{ width: '100px' }}>Company</th>
+                                                    <th style={{ width: '100px' }}>Company industries</th>
+                                                    <th style={{ width: '100px' }}>Company. keys</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr role="row" >
-                                                    <td colSpan="6" className="text-center">No data available in table</td>
+                                                <td style={{ width: '50px' }}>
+                                                    <input class="form-check-input" type="checkbox" 
+                                                    checked={isChecked}
+                                                    onClick={()=>setIsChecked(!isChecked)}
+                                                    />
+                                                    </td>
+                                                    <td ><Link>Larry Fink</Link></td>
+                                                    <td >Sales Team Leader </td>
+                                                    <td > <img /> BlackRock</td>
+                                                    <td >
+                                                        <button className="btn btn-outline-secondary p-1 text-black"><i class="fa-regular fa-envelope"></i> Access Email</button>
+                                                    </td>
+                                                    <td ><button className="btn btn-outline-secondary p-1 text-black"><i class="fa-solid fa-phone"></i> Access Phone</button></td>
+                                                    <td ><i class="fa-brands fa-linkedin-in"></i></td>
+                                                    <td >
+                                                        <div className="d-flex gap-1">
+                                                            <button className="btn m-0 btn-outline-secondary p-1 text-black"><i class="fa-regular fa-square-plus"></i></button>
+                                                            <button className="btn m-0 btn-outline-secondary p-1 text-black"><i class="fa-regular fa-paper-plane"></i></button>
+                                                            <button className="btn m-0 btn-outline-secondary p-1 text-black"><i class="fa-solid fa-eye"></i></button>
+                                                            <button className="btn m-0 btn-outline-secondary p-1 text-black"><i class="fa-solid fa-ellipsis"></i></button>
+                                                        </div>
+                                                    </td>
+                                                    <td >Limeira, Brazil</td>
+                                                    <td >3.4k</td>
+                                                    <td >Food & Beverages</td>
+                                                    <td >N/A</td>
                                                 </tr>
                                             </tbody>
                                         </table>
