@@ -64684,3 +64684,33 @@ background-color: #CACACC;
   text-align: center;
   padding: 10px;
 }
+
+
+/*---11:02:25:---css--here */
+.back_peoples{
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+.back_peoples:hover{
+  background-color: #E3E3E5;
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+
+.personHead_box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ib{
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #F0F0F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text_elip{
+}

@@ -1,14 +1,36 @@
+import React, { useState } from "react";
 import { SalespersonFilter } from "./salespersonFilter/SalespersonFilter";
 import Breadcrumbs from "../../common/breadcrumb/Breadcrumbs";
-import { Pagination } from "antd";
-import { Button } from "react-bootstrap";
-import { MdOutlineMarkEmailRead } from "react-icons/md";
-import { IoCallOutline } from "react-icons/io5";
+import { FaPlus } from "react-icons/fa6";
+import { LuSend } from "react-icons/lu";
+import { VscExport } from "react-icons/vsc";
+import Dropdown from "react-bootstrap/Dropdown";
+import { MdOutlineEmail } from "react-icons/md";
+import { TbSend2 } from "react-icons/tb";
+import { GoDownload } from "react-icons/go";
+import { Button, Flex, Pagination, Popover, Space } from "antd";
+import AddToList from "./addToList/AddToList";
+import CreateSequence from "./createSequence/CreateSequence";
+import { Link } from "react-router-dom";
 
 const PeoplesComp = () => {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [create, setCreate] = useState(false);
+
+  const sequenceClose = () => setCreate(false);
+  const sequenceShow = () => setCreate(true);
+
   const breadCrumbsTitle = {
     id: "1",
     title_1: "People",
+  };
+
+  const modalHeading = {
+    id: "1",
+    title: "Add to Lists",
   };
 
   return (
@@ -19,6 +41,67 @@ const PeoplesComp = () => {
         <div className="row m-2">
           <div className="col-xl-12">
             <div className="card">
+              <div className="card py-3">
+                <Flex gap="small" wrap>
+                  <Button type="text">1Selected</Button>
+                  <Button onClick={handleShow}>
+                    <FaPlus />
+                    Save
+                  </Button>
+                  <Button>
+                    <MdOutlineEmail />
+                    Email
+                  </Button>
+
+                  <Dropdown>
+                    <Dropdown.Toggle type="text" id="dropdown-basic">
+                      <TbSend2 className="me-1 mb-1" /> Sequence
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="#/action-1" className="p-0">
+                        <Button
+                          style={{ width: "100%" }}
+                          onClick={sequenceShow}
+                        >
+                          Add to new Sequence
+                        </Button>
+                      </Dropdown.Item>
+
+                      <Dropdown.Item href="#/action-2">
+                        Create workflow
+                      </Dropdown.Item>
+
+                      <Dropdown.Item href="#/action-3">
+                        Connect Salesloft
+                      </Dropdown.Item>
+
+                      <Dropdown.Item href="#/action-4">
+                        Connect Outreach
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+
+                  <Dropdown>
+                    <Dropdown.Toggle type="text" id="dropdown-basic">
+                      <GoDownload className="me-1 mb-1" />
+                      Export
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="#/action-1" className="p-0">
+                        <Button style={{ width: "100%" }} onClick={handleShow}>
+                          Export
+                        </Button>
+                      </Dropdown.Item>
+
+                      <Dropdown.Item href="#/action-2">
+                        View Companies
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Flex>
+              </div>
               <div className="card-body p-0">
                 <div className="table-responsive active-projects style-1">
                   <div className="tbl-caption">
@@ -67,43 +150,82 @@ const PeoplesComp = () => {
                       </thead>
                       <tbody>
                         <tr role="row">
-                          <td className="text-center">
+                          <td>
                             <input type="checkbox" />
                           </td>
 
-                          <td className="text-center">
-                            <a href="">Aislan leite</a>
+                          <td>
+                            <Link to="peopleDetails">Ian Bremmer</Link>
                           </td>
 
-                          <td className="text-center">Co-chair</td>
-                          <td className="text-center">
+                          <td>President and Founder</td>
+                          <td>
                             <img
                               src="https://zenprospect-production.s3.amazonaws.com/uploads/pictures/67a351a68e33440001fe8c97/picture"
                               alt=""
                               className="me-1 rounded-circle"
                               style={{ width: "35px" }}
                             />
-                            Ajinomoto do Brasil
+                            Eurasia Group
                           </td>
 
-                          <td className="text-center">
-                            <Button variant="secondary">
-                              <MdOutlineMarkEmailRead className="fs-4 me-2 mb-1" />
-                              Access email
-                            </Button>
+                          <td>balkrishna.korgaonkar@globaldevincubator.org</td>
+
+                          <td>+91 98753745030</td>
+
+                          <td>
+                            <div>
+                              <Space>
+                                <Popover title="Add to Lists" trigger="hover">
+                                  <Button onClick={handleShow}>
+                                    <FaPlus />
+                                  </Button>
+                                </Popover>
+
+                                <Popover
+                                  title="Add to Sequence"
+                                  trigger="hover"
+                                >
+                                  <Button onClick={sequenceShow}>
+                                    <LuSend />
+                                  </Button>
+                                </Popover>
+
+                                <Popover title="View In Apollo" trigger="hover">
+                                  <Button>
+                                    <VscExport />
+                                  </Button>
+                                </Popover>
+
+                                <Dropdown>
+                                  <Dropdown.Toggle
+                                    variant="secondary"
+                                    id="dropdown-basic"
+                                  >
+                                    more
+                                  </Dropdown.Toggle>
+
+                                  <Dropdown.Menu>
+                                    <Dropdown.Item
+                                      href="#/action-2"
+                                      className="p-0"
+                                    >
+                                      <Button
+                                        style={{ width: "100%" }}
+                                        onClick={handleShow}
+                                      >
+                                        Export
+                                      </Button>
+                                    </Dropdown.Item>
+                                  </Dropdown.Menu>
+                                </Dropdown>
+                              </Space>
+                            </div>
                           </td>
 
-                          <td className="text-center">
-                            <Button variant="secondary">
-                              <IoCallOutline className="fs-4 me-2 mb-1" />
-                              Access Mobile
-                            </Button>
-                          </td>
-
-                          <td className="text-center"></td>
-                          <td className="text-center">In</td>
-                          <td className="text-center">Limeira, Brazil</td>
-                          <td className="text-center">
+                          <td>In</td>
+                          <td>Limeira, Brazil</td>
+                          <td>
                             <span
                               className=" rounded-3 py-1 px-2"
                               style={{ backgroundColor: "#F0F4F9" }}
@@ -112,7 +234,7 @@ const PeoplesComp = () => {
                             </span>
                           </td>
 
-                          <td className="text-center">
+                          <td>
                             <span
                               className=" rounded-3 py-1 px-2"
                               style={{ backgroundColor: "#F0F4F9" }}
@@ -121,7 +243,104 @@ const PeoplesComp = () => {
                             </span>
                           </td>
 
-                          <td className="text-center">N/A</td>
+                          <td>N/A</td>
+                        </tr>
+
+                        <tr role="row">
+                          <td>
+                            <input type="checkbox" />
+                          </td>
+
+                          <td>
+                            <Link to="">Stuart Symington</Link>
+                          </td>
+
+                          <td>Global Storytelling Lead (Brand, Ma...)</td>
+                          <td>
+                            <img
+                              src="https://zenprospect-production.s3.amazonaws.com/uploads/pictures/67a5f44e319b110001cea041/picture"
+                              alt=""
+                              className="me-1 rounded-circle"
+                              style={{ width: "35px" }}
+                            />
+                            The Global Development Incubator
+                          </td>
+
+                          <td>balshna.konkar@gubator.org</td>
+
+                          <td>+91 98753745030</td>
+
+                          <td>
+                            <div>
+                              <Space>
+                                <Popover title="Add to Lists" trigger="hover">
+                                  <Button onClick={handleShow}>
+                                    <FaPlus />
+                                  </Button>
+                                </Popover>
+
+                                <Popover
+                                  title="Add to Sequence"
+                                  trigger="hover"
+                                >
+                                  <Button onClick={sequenceShow}>
+                                    <LuSend />
+                                  </Button>
+                                </Popover>
+
+                                <Popover title="View In Apollo" trigger="hover">
+                                  <Button>
+                                    <VscExport />
+                                  </Button>
+                                </Popover>
+
+                                <Dropdown>
+                                  <Dropdown.Toggle
+                                    variant="secondary"
+                                    id="dropdown-basic"
+                                  >
+                                    more
+                                  </Dropdown.Toggle>
+
+                                  <Dropdown.Menu>
+                                    <Dropdown.Item
+                                      href="#/action-2"
+                                      className="p-0"
+                                    >
+                                      <Button
+                                        style={{ width: "100%" }}
+                                        onClick={handleShow}
+                                      >
+                                        Export
+                                      </Button>
+                                    </Dropdown.Item>
+                                  </Dropdown.Menu>
+                                </Dropdown>
+                              </Space>
+                            </div>
+                          </td>
+
+                          <td>In</td>
+                          <td>Washington, District of Co</td>
+                          <td>
+                            <span
+                              className=" rounded-3 py-1 px-2"
+                              style={{ backgroundColor: "#F0F4F9" }}
+                            >
+                              88k
+                            </span>
+                          </td>
+
+                          <td>
+                            <span
+                              className=" rounded-3 py-1 px-2"
+                              style={{ backgroundColor: "#F0F4F9" }}
+                            >
+                              International Trade & Development
+                            </span>
+                          </td>
+
+                          <td>N/A</td>
                         </tr>
                       </tbody>
                     </table>
@@ -147,7 +366,14 @@ const PeoplesComp = () => {
           </div>
         </div>
       </div>
-      {/* <ToastContainer className="text-center" /> */}
+
+      <AddToList
+        show={show}
+        handleClose={handleClose}
+        modalHeading={modalHeading}
+      />
+
+      <CreateSequence create={create} sequenceClose={sequenceClose} />
     </>
   );
 };

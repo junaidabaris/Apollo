@@ -91,6 +91,7 @@ import GlobalPicklistsPage from "./pages/settingsPage/dataManagementPage/globalP
 import ImportExportPage from "./pages/settingsPage/dataManagementPage/imports&exports/index.js";
 import AiContentCenterPage from "./pages/settingsPage/dataManagementPage/aiContentCenter/index.js";
 import DataEnrichmentPage from "./pages/dataEnrichmentPage/index.js";
+import PeopleDetails from "./components/people/peopleDetails/PeopleDetails.js";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -159,6 +160,11 @@ function App() {
               <Route path="list" element={<ListPages />} />
               <Route path="companies" element={<CompaniesPage />} />
               <Route path="peoples" element={<PeoplesPage />} />
+
+              {/* ---people-details-page work date --11:02:25--- start*/}
+              <Route path="peoples/peopleDetails" element={<PeopleDetails />} />
+              {/* ---people-details-page work date --11:02:25--- end*/}
+
               <Route path="sequences-edit/:id" element={<SequencePages />} />
 
               <Route path="profile" element={<ProfilePage />} />
