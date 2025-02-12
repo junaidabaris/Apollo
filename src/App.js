@@ -157,7 +157,6 @@ function App() {
               <Route path="signals-add" element={<SignalsAdd />} />
 
               <Route path="list" element={<ListPages />} />
-              <Route path="companies" element={<CompaniesPage />} />
               <Route path="peoples" element={<PeoplesPage />} />
               <Route path="sequences-edit/:id" element={<SequencePages />} />
 
@@ -209,8 +208,10 @@ function App() {
               <Route path="purchasedashboard" element={<PurchaseDashboard />} />
               {/* <Route path="alerts" element={<Alerts />} /> */}
               <Route path="businesspatner" element={<BusinessPatner />} />
+              <Route path="companies" element={<CompaniesPage />} />
 
               <Route path="crm" element={<CrmDahboard />} />
+              <Route path="company" element={<CrmDahboard />} />
 
               {/* apollo -settings--security-- 27:01:25-- */}
 
